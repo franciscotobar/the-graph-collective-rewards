@@ -3,6 +3,9 @@
     "BackersManager": {
       "address": "0x41841e316F85933247fC7b51c79B76F22eB239bc",
       "startBlock": 5784028
+    },
+    "GaugeRootstockCollective": {
+      "address": "0x08f5f0ff1182732f549BEeD8740845149BbfFc7f"
     }
   }
 }

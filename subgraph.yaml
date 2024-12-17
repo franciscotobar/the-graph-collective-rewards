@@ -5,22 +5,34 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: BackersManager
+    name: GaugeRootstockCollective1
     network: rootstock-testnet
     source:
-      address: "0x41841e316F85933247fC7b51c79B76F22eB239bc"
-      abi: BackersManager
-      startBlock: 5784028
+      address: "0x36Cc4D9479cf6aE336459124722E7d4cf4C36a2b"
+      abi: GaugeRootstockCollective
+      startBlock: 5811503
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Upgraded
+        - BackerRewardsClaimed
+        - BuilderRewardsClaimed
+        - Initialized
+        - NewAllocation
+        - NotifyReward
       abis:
-        - name: BackersManager
-          file: ./abis/BackersManager.json
+        - name: GaugeRootstockCollective
+          file: ./abis/GaugeRootstockCollective.json
       eventHandlers:
-        - event: Upgraded(indexed address)
-          handler: handleUpgraded
-      file: ./src/backers-manager.ts
+        - event: BackerRewardsClaimed(indexed address,indexed address,uint256)
+          handler: handleBackerRewardsClaimed
+        - event: BuilderRewardsClaimed(indexed address,indexed address,uint256)
+          handler: handleBuilderRewardsClaimed
+        - event: Initialized(uint64)
+          handler: handleInitialized
+        - event: NewAllocation(indexed address,uint256)
+          handler: handleNewAllocation
+        - event: NotifyReward(indexed address,uint256,uint256)
+          handler: handleNotifyReward
+      file: ./src/gauge-rootstock-collective.ts
