@@ -1,0 +1,95 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: BackersManagerRootstockCollective
+    network: rootstock-testnet
+    source:
+      address: "0xba93a9cf3e8194b7d04bee459c679b2125cd569b"
+      abi: BackersManagerRootstockCollective
+      startBlock: 5784028
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - BackerRewardPercentageUpdateScheduled
+        - BuilderActivated
+        - BuilderMigrated
+        - BuilderRewardReceiverReplacementApproved
+        - BuilderRewardReceiverReplacementCancelled
+        - BuilderRewardReceiverReplacementRequested
+        - CommunityApproved
+        - Dewhitelisted
+        - GaugeCreated
+        - Initialized
+        - KYCApproved
+        - KYCRevoked
+        - NewAllocation
+        - NewCycleDurationScheduled
+        - NewDistributionDuration
+        - NotifyReward
+        - Paused
+        - Permitted
+        - Revoked
+        - RewardDistributed
+        - RewardDistributionFinished
+        - RewardDistributionStarted
+        - Unpaused
+        - Upgraded
+      abis:
+        - name: BackersManagerRootstockCollective
+          file: ./abis/BackersManagerRootstockCollective.json
+      eventHandlers:
+        - event: BackerRewardPercentageUpdateScheduled(indexed address,uint256,uint256)
+          handler: handleBackerRewardPercentageUpdateScheduled
+        - event: BuilderActivated(indexed address,address,uint64)
+          handler: handleBuilderActivated
+        - event: BuilderMigrated(indexed address,indexed address)
+          handler: handleBuilderMigrated
+        - event: BuilderRewardReceiverReplacementApproved(indexed address,address)
+          handler: handleBuilderRewardReceiverReplacementApproved
+        - event: BuilderRewardReceiverReplacementCancelled(indexed address,address)
+          handler: handleBuilderRewardReceiverReplacementCancelled
+        - event: BuilderRewardReceiverReplacementRequested(indexed address,address)
+          handler: handleBuilderRewardReceiverReplacementRequested
+        - event: CommunityApproved(indexed address)
+          handler: handleCommunityApproved
+        - event: Dewhitelisted(indexed address)
+          handler: handleDewhitelisted
+        - event: GaugeCreated(indexed address,indexed address,address)
+          handler: handleGaugeCreated
+        - event: Initialized(uint64)
+          handler: handleInitialized
+        - event: KYCApproved(indexed address)
+          handler: handleKYCApproved
+        - event: KYCRevoked(indexed address)
+          handler: handleKYCRevoked
+        - event: NewAllocation(indexed address,indexed address,uint256)
+          handler: handleNewAllocation
+        - event: NewCycleDurationScheduled(uint256,uint256)
+          handler: handleNewCycleDurationScheduled
+        - event: NewDistributionDuration(uint256,address)
+          handler: handleNewDistributionDuration
+        - event: NotifyReward(indexed address,indexed address,uint256)
+          handler: handleNotifyReward
+        - event: Paused(indexed address,bytes20)
+          handler: handlePaused
+        - event: Permitted(indexed address,uint256,uint256)
+          handler: handlePermitted
+        - event: Revoked(indexed address)
+          handler: handleRevoked
+        - event: RewardDistributed(indexed address)
+          handler: handleRewardDistributed
+        - event: RewardDistributionFinished(indexed address)
+          handler: handleRewardDistributionFinished
+        - event: RewardDistributionStarted(indexed address)
+          handler: handleRewardDistributionStarted
+        - event: Unpaused(indexed address)
+          handler: handleUnpaused
+        - event: Upgraded(indexed address)
+          handler: handleUpgraded
+      file: ./src/backers-manager-rootstock-collective.ts
