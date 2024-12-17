@@ -1,0 +1,8 @@
+{
+  "rootstock-testnet": {
+    "BackersManager": {
+      "address": "0x41841e316F85933247fC7b51c79B76F22eB239bc",
+      "startBlock": 5784028
+    }
+  }
+}
