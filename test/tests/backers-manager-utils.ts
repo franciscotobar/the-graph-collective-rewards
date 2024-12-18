@@ -25,7 +25,7 @@ import {
   RewardDistributionStarted,
   Unpaused,
   Upgraded
-} from "../generated/BackersManagerRootstockCollective/BackersManagerRootstockCollective"
+} from "../generated/BackersManager/BackersManager"
 
 export function createBackerRewardPercentageUpdateScheduledEvent(
   builder_: Address,

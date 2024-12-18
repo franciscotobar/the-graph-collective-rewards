@@ -23,7 +23,7 @@ import {
   RewardDistributionStarted as RewardDistributionStartedEvent,
   Unpaused as UnpausedEvent,
   Upgraded as UpgradedEvent
-} from "../generated/BackersManagerRootstockCollective/BackersManagerRootstockCollective"
+} from "../generated/BackersManager/BackersManager"
 import {
   BackerRewardPercentageUpdateScheduled,
   BuilderActivated,
