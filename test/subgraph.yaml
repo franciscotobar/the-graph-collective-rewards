@@ -5,11 +5,11 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: BackersManager
+    name: BackersManagerRootstockCollective
     network: rootstock-testnet
     source:
       address: "0xBa93A9CF3E8194b7D04bee459c679B2125cD569b"
-      abi: BackersManager
+      abi: BackersManagerRootstockCollective
       startBlock: 5784028
     mapping:
       kind: ethereum/events
@@ -41,8 +41,8 @@ dataSources:
         - Unpaused
         - Upgraded
       abis:
-        - name: BackersManager
-          file: ./abis/BackersManager.json
+        - name: BackersManagerRootstockCollective
+          file: ./abis/BackersManagerRootstockCollective.json
       eventHandlers:
         - event: BackerRewardPercentageUpdateScheduled(indexed address,uint256,uint256)
           handler: handleBackerRewardPercentageUpdateScheduled
@@ -92,4 +92,4 @@ dataSources:
           handler: handleUnpaused
         - event: Upgraded(indexed address)
           handler: handleUpgraded
-      file: ./src/backers-manager.ts
+      file: ./src/backers-manager-rootstock-collective.ts

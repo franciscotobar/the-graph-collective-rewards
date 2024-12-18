@@ -8,9 +8,9 @@ import {
 } from "matchstick-as/assembly/index"
 import { Address, BigInt, Bytes } from "@graphprotocol/graph-ts"
 import { BackerRewardPercentageUpdateScheduled } from "../generated/schema"
-import { BackerRewardPercentageUpdateScheduled as BackerRewardPercentageUpdateScheduledEvent } from "../generated/BackersManager/BackersManager"
-import { handleBackerRewardPercentageUpdateScheduled } from "../src/backers-manager"
-import { createBackerRewardPercentageUpdateScheduledEvent } from "./backers-manager-utils"
+import { BackerRewardPercentageUpdateScheduled as BackerRewardPercentageUpdateScheduledEvent } from "../generated/BackersManagerRootstockCollective/BackersManagerRootstockCollective"
+import { handleBackerRewardPercentageUpdateScheduled } from "../src/backers-manager-rootstock-collective"
+import { createBackerRewardPercentageUpdateScheduledEvent } from "./backers-manager-rootstock-collective-utils"
 
 // Tests structure (matchstick-as >=0.5.0)
 // https://thegraph.com/docs/en/developer/matchstick/#tests-structure-0-5-0
