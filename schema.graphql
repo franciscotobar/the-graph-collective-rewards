@@ -1,10 +1,3 @@
-type Upgraded @entity(immutable: true) {
-  id: Bytes!
-  implementation: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
 type BackerRewardsClaimed @entity(immutable: true) {
   id: Bytes!
   rewardToken_: Bytes! # address
@@ -44,52 +37,7 @@ type NewAllocation @entity(immutable: true) {
 
 type NotifyReward @entity(immutable: true) {
   id: Bytes!
-  rewardToken_: Bytes! # address
-  builderAmount_: BigInt! # uint256
-  backersAmount_: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-type GaugeRootstockCollectiveBackerRewardsClaimed @entity(immutable: true) {
-  id: Bytes!
-  rewardToken_: Bytes! # address
-  backer_: Bytes! # address
-  amount_: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type GaugeRootstockCollectiveBuilderRewardsClaimed @entity(immutable: true) {
-  id: Bytes!
-  rewardToken_: Bytes! # address
-  builder_: Bytes! # address
-  amount_: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type GaugeRootstockCollectiveInitialized @entity(immutable: true) {
-  id: Bytes!
-  version: BigInt! # uint64
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type GaugeRootstockCollectiveNewAllocation @entity(immutable: true) {
-  id: Bytes!
-  backer_: Bytes! # address
-  allocation_: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type GaugeRootstockCollectiveNotifyReward @entity(immutable: true) {
-  id: Bytes!
+  gaugeAddress: Bytes!
   rewardToken_: Bytes! # address
   builderAmount_: BigInt! # uint256
   backersAmount_: BigInt! # uint256

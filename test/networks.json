@@ -1,8 +1,8 @@
 {
   "rootstock-testnet": {
-    "GaugeRootstockCollective": {
-      "address": "0x08f5f0ff1182732f549BEeD8740845149BbfFc7f",
-      "startBlock": 5792260
+    "BackersManagerRootstockCollective": {
+      "address": "0xBa93A9CF3E8194b7D04bee459c679B2125cD569b",
+      "startBlock": 5784028
     }
   }
 }
