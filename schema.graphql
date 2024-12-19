@@ -255,3 +255,11 @@ type GaugeRootstockCollectiveNotifyReward @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+
+type GaugeRootstockCollectiveAllTimeRewards @entity {
+  id: Bytes!
+  gaugeAddress: Bytes! # address
+  rewardToken_: Bytes! # address
+  builderAmount_: BigInt! # uint256
+  backersAmount_: BigInt! # uint256
+}
