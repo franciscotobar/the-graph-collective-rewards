@@ -247,6 +247,7 @@ type GaugeRootstockCollectiveNewAllocation @entity(immutable: true) {
 
 type GaugeRootstockCollectiveNotifyReward @entity(immutable: true) {
   id: Bytes!
+  gaugeAddress: Bytes! # address
   rewardToken_: Bytes! # address
   builderAmount_: BigInt! # uint256
   backersAmount_: BigInt! # uint256
