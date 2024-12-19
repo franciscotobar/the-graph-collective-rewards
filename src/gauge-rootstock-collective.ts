@@ -8,6 +8,7 @@ import {
 import {
   BackerRewardsClaimed,
   BuilderRewardsClaimed,
+  GaugeRootstockCollectiveAllTimeRewards,
   GaugeRootstockCollectiveNewAllocation,
   GaugeRootstockCollectiveNotifyReward,
   Initialized,
@@ -88,4 +89,23 @@ export function handleNotifyReward(event: NotifyRewardEvent): void {
   entity.transactionHash = event.transaction.hash;
 
   entity.save();
+
+  let id = event.address.concat(event.params.rewardToken_);
+  let allTimeRewards = GaugeRootstockCollectiveAllTimeRewards.load(id);
+  if (allTimeRewards == null) {
+    allTimeRewards = new GaugeRootstockCollectiveAllTimeRewards(id);
+    allTimeRewards.rewardToken_ = event.params.rewardToken_;
+    allTimeRewards.builderAmount_ = event.params.builderAmount_;
+    allTimeRewards.backersAmount_ = event.params.backersAmount_;
+    allTimeRewards.gaugeAddress = event.address;
+  } else {
+    allTimeRewards.builderAmount_ = allTimeRewards.builderAmount_.plus(
+      event.params.builderAmount_
+    );
+    allTimeRewards.backersAmount_ = allTimeRewards.builderAmount_.plus(
+      event.params.backersAmount_
+    );
+  }
+
+  allTimeRewards.save();
 }

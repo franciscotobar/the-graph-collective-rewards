@@ -109,6 +109,7 @@ templates:
         - GaugeRootstockCollectiveInitialized
         - GaugeRootstockCollectiveNewAllocation
         - GaugeRootstockCollectiveNotifyReward
+        - GaugeRootstockCollectiveAllTimeRewards
       abis:
         - name: GaugeRootstockCollective
           file: ./abis/GaugeRootstockCollective.json
